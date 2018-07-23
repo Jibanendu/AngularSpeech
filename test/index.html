@@ -10,7 +10,7 @@
 <body>
   <div ng-app='speech'>
   <div ng-controller="speechController as spc">
-    <div class="results">
+    <div id="results" class="results">
       <span class="final">
         {{ spc.final }}
       </span>
@@ -18,13 +18,14 @@
         {{ spc.interim }}
       </span>
     </div>
-    <button ng-click="spc.start()">
+    <button ng-click="spc.start()" class="test_class">
       Start
     </button>
       <form>
-        You have said :<input type="text" name="a" id="a" value={{spc.final}}>
-        <button onclick="initViz();">Reports</button>
+      <!--You have said :<input type="text" name="a" id="a" value={{spc.final}}>
+        <button onclick="initViz();">Reports</button>-->
          <div id="vizContainer" style="width:800px; height:700px;"></div>
+
          </div>
        </form>
   </div>
@@ -32,32 +33,29 @@
 </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'></script>
-<script type="text/javascript" 
+<script type="text/javascript"
       src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-  
+
 
     <script  src="js/index.js"></script>
-    <script type="text/javascript">
-       function initViz() {
-            var valueCheck=document.getElementById('a').value;
-            var urlCreation="http://public.tableau.com/views/RegionalSampleWorkbook/Storms";
-            console.log(valueCheck);
-            console.log(urlCreation);
-            var containerDiv = document.getElementById("vizContainer"),
-                url = urlCreation,
-                options = {
-                    hideTabs: true,
-                    onFirstInteractive: function () {
-                        console.log("Run this code when the viz has finished loading.");
-                    }
-                };
-            var viz = new tableau.Viz(containerDiv, url, options); 
-            // Create a viz object and embed it in the container div.
-        }
-    </script>
+    <script type="text/javascript" src="js/tableauScript.js"></script>
 
+    <!--<script type="text/javascript">
+
+    $( ".test_class" ).click(function() {
+     var test1 = $('.ng-binding').html();
+     alert(test1);
+     /*if($('.ng-binding').html())
+     {
+       alert(' if Working!'+test1);
+     }
+     else {
+       alert(' else Working!'+test1);
+     }*/
+    });
+  </script> -->
 
 
 </body>
