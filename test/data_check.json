@@ -1,0 +1,26 @@
+[
+{
+"display": "OBESITY",
+"url": "http://public.tableau.com/views/RegionalSampleWorkbook/Obesity"
+},
+{
+"display": "COLLEGE",
+"url": "http://public.tableau.com/views/RegionalSampleWorkbook/College"
+},
+{
+"display": "ECONOMY",
+"url": "http://public.tableau.com/views/RegionalSampleWorkbook/Economy"
+},
+{
+"display": "STOCKS",
+"url": "http://public.tableau.com/views/RegionalSampleWorkbook/Stocks"
+},
+{
+"display": "STORMS",
+"url": "http://public.tableau.com/views/RegionalSampleWorkbook/Storms"
+},
+{
+"display": "FLIGHTS",
+"url": "http://public.tableau.com/views/RegionalSampleWorkbook/Flights"
+}
+]

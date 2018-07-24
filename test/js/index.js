@@ -15,10 +15,12 @@ angular.module('speech').controller('speechController', function($scope) {
 
   this.start = function() {
     self.rec.start();
+
   };
 
   this.rec.onresult = function(event) {
     console.log("Enter in Start Button");
+    //myFunction(arr);
     for(var i = event.resultIndex; i < event.results.length; i++) {
       if(event.results[i].isFinal) {
         self.final = self.final.concat(event.results[i][0].transcript);
@@ -27,11 +29,12 @@ angular.module('speech').controller('speechController', function($scope) {
         self.interim = '';
         $scope.$apply();
         console.log(event.results[i][0].transcript);
-        initViz(event.results[i][0].transcript);
-
+        var valueFound=event.results[i][0].transcript;
+        var res = valueFound.toUpperCase();
+        console.log('UpperCase response:'+res);
+        initViz(valueFound);
       } else {
         self.interim = '';
-
         $scope.$apply();
         self.interim = self.interim.concat(event.results[i][0].transcript);
         $scope.$apply();
