@@ -15,8 +15,11 @@ angular.module('speech').controller('speechController', function($scope) {
 
   this.start = function() {
     self.rec.start();
-
   };
+
+  //this.options = function(){
+  //  self.rec.start();
+  //  }
 
   this.rec.onresult = function(event) {
     console.log("Enter in Start Button");

@@ -2,6 +2,7 @@ function initViz(eventFound) {
    //location.reload();
   var LOADED_INDICATOR = 'tableau.loadIndicatorsLoaded';
    var COMPLETE_INDICATOR = 'tableau.completed';
+
      //var valueCheck=document.getElementById('a').value;
      var valueCheck=eventFound;
      console.log('Found'+valueCheck);
@@ -17,10 +18,76 @@ function initViz(eventFound) {
              console.log(jsonData[i].display);
              count =count+1;
              out += '<a href="' + jsonData[i].url + '">' + count+'.)'+ jsonData[i].display + '</a><br>';
+             matched_data.push(jsonData[i].display);
+
            }
          }
          document.getElementById("id01").innerHTML = out;
+         var x = document.getElementById("speechButton");
+         var y = document.getElementById("results");
+         var resultHide=document.getElementById("result");
+         var buttonHide=document.getElementById("optionButton");
+
+         x.style.display = "none";
+         y.style.display ="none";
+         resultHide.style.display = "block";
+         buttonHide.style.display="block";
+         if(out==null||out=="")
+         {
+           var msg = new SpeechSynthesisUtterance('No reports to display');
+           window.speechSynthesis.speak(msg);
+         }
+         else {
+           console.log('Value Found'+out);
+           var msg = new SpeechSynthesisUtterance('Select an option');
+           window.speechSynthesis.speak(msg);
+         }
      });
+
+ }
+
+ var matched_data = [];
+
+ function initViz1(eventFound){
+    var LOADED_INDICATOR = 'tableau.loadIndicatorsLoaded';
+    var COMPLETE_INDICATOR = 'tableau.completed';
+      //var valueCheck=document.getElementById('a').value;
+    var valueCheck=eventFound;
+    var res = valueCheck.toUpperCase();
+    loadJSON(function(json) {
+      var out = "";
+      var count =0;
+      var jsonData = JSON.parse(json);
+      console.log("matched_data",matched_data.length);
+      for (var i=0;i<matched_data.length;i++) {
+        //var checkValue = matched_data[i]..match(res);
+          if(checkValue)
+          {
+            console.log(jsonData[i].display);
+            count =count+1;
+          //  out += '<a href="' + jsonData[i].url + '">' + count+'.)'+ jsonData[i].display + '</a><br>';
+
+            console.log(jsonData[i].url);
+            window.open(jsonData[i].url);
+
+          }
+        }
+        document.getElementById("id01").innerHTML = out;
+
+        if(out==null||out=="")
+        {
+          var msg = new SpeechSynthesisUtterance('No reports to display');
+          window.speechSynthesis.speak(msg);
+        }
+        else {
+          console.log('Value Found'+out);
+          var msg = new SpeechSynthesisUtterance('Select an option');
+          window.speechSynthesis.speak(msg);
+
+          //document.getElementById("firstTextField").style.display='block';
+        }
+    });
+
 
  }
 

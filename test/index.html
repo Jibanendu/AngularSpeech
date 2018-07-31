@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Smart Tableau</title>
       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -19,16 +20,29 @@
         {{ spc.interim }}
       </span>
     </div>
-    <button ng-click="spc.start()" class="test_class">
-      Start
+    <div id="speechButton" align="left">
+    <button ng-click="spc.start()" class="test_class" >
+      <i class="fa fa-microphone"></i>
     </button>
+  </div>
+
 
     <div id="id01"></div>
 
+
+    <div id="result"> Speak to Select</div>
+		<div id="optionButton"><button onclick="startConverting();"><i class="fa fa-microphone"></i></button></div>
+   <script>
+     var resultHide=document.getElementById("result");
+     var buttonHide=document.getElementById("optionButton");
+      resultHide.style.display = "none";
+      buttonHide.style.display="none";
+   </script>
       <form>
          <div id="vizContainer" style="width:800px; height:700px;"></div>
        </form>
   </div>
+
 
 </div>
 
@@ -36,11 +50,15 @@
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'></script>
 <script type="text/javascript"
       src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <script  src="js/index.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/options.js"></script>
     <script type="text/javascript" src="js/tableauScript.js"></script>
+
 
 </body>
 
